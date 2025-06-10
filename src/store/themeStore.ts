@@ -10,11 +10,10 @@ interface ThemeStore {
 export const useThemeStore = create<ThemeStore>()(
   persist(
     (set) => ({
-      theme: 'dark', // <-- agora dark é o padrão!
+      theme: 'dark', // Dark como padrão sempre
       toggleTheme: () =>
         set((state) => {
           const newTheme = state.theme === 'light' ? 'dark' : 'light';
-          // Atualiza a classe no <html> também:
           if (typeof document !== 'undefined') {
             document.documentElement.classList.toggle('dark', newTheme === 'dark');
           }
@@ -29,7 +28,11 @@ export const useThemeStore = create<ThemeStore>()(
     }),
     {
       name: 'how-wallet-theme',
+      onRehydrateStorage: () => (state) => {
+        if (typeof document !== 'undefined') {
+          document.documentElement.classList.toggle('dark', state?.theme === 'dark');
+        }
+      },
     }
   )
 );
-
