@@ -102,7 +102,7 @@ const SettingsPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="bg-gradient-to-r from-[#3A1C71] to-[#7F5283] rounded-2xl p-6 mb-6"
+          className="bg-gradient-to-r from-[#7e3ff2] to-[#a855f7] rounded-2xl p-6 mb-6"
         >
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">

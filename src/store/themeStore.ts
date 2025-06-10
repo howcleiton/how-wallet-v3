@@ -1,24 +1,35 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface ThemeStore {
-  theme: 'light' | 'dark'
-  toggleTheme: () => void
-  setTheme: (theme: 'light' | 'dark') => void
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
+  setTheme: (theme: 'light' | 'dark') => void;
 }
 
 export const useThemeStore = create<ThemeStore>()(
   persist(
     (set) => ({
-      theme: 'light',
+      theme: 'dark', // <-- agora dark é o padrão!
       toggleTheme: () =>
-        set((state) => ({
-          theme: state.theme === 'light' ? 'dark' : 'light',
-        })),
-      setTheme: (theme) => set({ theme }),
+        set((state) => {
+          const newTheme = state.theme === 'light' ? 'dark' : 'light';
+          // Atualiza a classe no <html> também:
+          if (typeof document !== 'undefined') {
+            document.documentElement.classList.toggle('dark', newTheme === 'dark');
+          }
+          return { theme: newTheme };
+        }),
+      setTheme: (theme) => {
+        if (typeof document !== 'undefined') {
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+        set({ theme });
+      },
     }),
     {
-      name: 'how-wallet-theme', // nome no localStorage
+      name: 'how-wallet-theme',
     }
   )
-)
+);
+

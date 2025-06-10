@@ -8,6 +8,15 @@ interface DAppCardProps {
 }
 
 const DAppCard = ({ dapp, index }: DAppCardProps) => {
+  // Mapa de ícones locais (se você quiser, pode adicionar mais aqui depois)
+  const localIconMap: Record<string, string> = {
+    'Magic Eden': '/icons/dapps/magic-eden.png',
+    'Mango Markets': '/icons/dapps/mango-markets.jpg',
+    'Marinade Finance': '/icons/dapps/marinade-finance.jpeg',
+    'Saber': '/icons/dapps/saber-solana.png',
+    // Pode adicionar mais DApps aqui
+  };
+
   return (
     <CardContainer
       delay={index}
@@ -16,12 +25,15 @@ const DAppCard = ({ dapp, index }: DAppCardProps) => {
       <div className="flex items-start">
         <div className="w-12 h-12 rounded-xl bg-muted p-1 mr-4 flex-shrink-0 overflow-hidden">
           <img 
-            src={dapp.iconUrl} 
+            src={localIconMap[dapp.name] ?? dapp.iconUrl}
             alt={dapp.name}
             className="w-full h-full object-contain"
             onError={(e) => {
-              // Fallback if image fails to load
-              (e.target as HTMLImageElement).src = 'https://via.placeholder.com/48?text=' + dapp.name.substring(0, 2);
+              const target = e.target as HTMLImageElement;
+              const fallback = '/icons/dapps/default-dapp-icon.png';
+              if (!target.src.endsWith(fallback)) {
+                target.src = fallback;
+              }
             }}
           />
         </div>

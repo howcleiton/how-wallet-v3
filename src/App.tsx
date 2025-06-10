@@ -28,6 +28,28 @@ import SecuritySettingsPage from '@/pages/subpages/SecuritySettingsPage';
 import SeedPhraseSettingsPage from '@/pages/subpages/SeedPhraseSettingsPage';
 import BackupSettingsPage from '@/pages/subpages/BackupSettingsPage';
 
+// ✅ Novo componente que garante dark mode no primeiro load:
+function ThemeInit() {
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('how-wallet-theme');
+    
+    if (!storedTheme) {
+      // Primeiro acesso → força dark
+      document.documentElement.classList.add('dark');
+    } else {
+      // Se já tem salvo, aplica corretamente
+      const parsedTheme = JSON.parse(storedTheme);
+      if (parsedTheme.state?.theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, []);
+
+  return null;
+}
+
 function ThemeEffect() {
   const { theme } = useThemeStore();
 
@@ -41,45 +63,48 @@ function ThemeEffect() {
 
 function App() {
   return (
-    <Router>
-      <ThemeEffect />
+    <>
+      <ThemeInit /> {/* <-- Garante dark no primeiro load */}
+      <Router>
+        <ThemeEffect /> {/* <-- Mantém sincronizado com store */}
 
-      <Routes>
-        {/* ✅ Tela de boas-vindas na raiz */}
-        <Route path="/" element={<WelcomePage />} />
+        <Routes>
+          {/* ✅ Tela de boas-vindas na raiz */}
+          <Route path="/" element={<WelcomePage />} />
 
-        {/* ✅ Telas públicas */}
-        <Route path="/create-option" element={<CreateOptionPage />} />
-        <Route path="/create-email" element={<CreateEmailPage />} />
-        <Route path="/create-pin" element={<CreatePinPage />} />
-        <Route path="/confirm-pin" element={<ConfirmPinPage />} />
-        <Route path="/create-wallet" element={<CreateWalletPage />} />
-        <Route path="/import-wallet" element={<ImportWalletPage />} />
+          {/* ✅ Telas públicas */}
+          <Route path="/create-option" element={<CreateOptionPage />} />
+          <Route path="/create-email" element={<CreateEmailPage />} />
+          <Route path="/create-pin" element={<CreatePinPage />} />
+          <Route path="/confirm-pin" element={<ConfirmPinPage />} />
+          <Route path="/create-wallet" element={<CreateWalletPage />} />
+          <Route path="/import-wallet" element={<ImportWalletPage />} />
 
-        {/* ✅ Telas protegidas */}
-        <Route element={<PrivateRoute />}>
-          <Route path="/wallet" element={<WalletPage />} />
-          <Route path="/token/:tokenId" element={<TokenDetailPage />} />
-          <Route path="/send" element={<SendPage />} />
-          <Route path="/receive" element={<ReceivePage />} />
-          <Route path="/activity" element={<ActivityPage />} />
-          <Route path="/discover" element={<DiscoverPage />} />
-          <Route path="/settings" element={<SettingsPage />} />
+          {/* ✅ Telas protegidas */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/wallet" element={<WalletPage />} />
+            <Route path="/token/:tokenId" element={<TokenDetailPage />} />
+            <Route path="/send" element={<SendPage />} />
+            <Route path="/receive" element={<ReceivePage />} />
+            <Route path="/activity" element={<ActivityPage />} />
+            <Route path="/discover" element={<DiscoverPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
 
-          {/* ✅ NOVAS Subpages de Settings */}
-          <Route path="/connect-devices-settings" element={<ConnectDevicesSettingsPage />} />
-          <Route path="/help-support-settings" element={<HelpSupportSettingsPage />} />
-          <Route path="/network-settings" element={<NetworkSettingsPage />} />
-          <Route path="/notifications-settings" element={<NotificationsSettingsPage />} />
-          <Route path="/privacy-settings" element={<PrivacySettingsPage />} />
-          <Route path="/security-settings" element={<SecuritySettingsPage />} />
-          <Route path="/seedphrase-settings" element={<SeedPhraseSettingsPage />} />
-          <Route path="/backup-settings" element={<BackupSettingsPage />} />
-        </Route>
-      </Routes>
+            {/* ✅ NOVAS Subpages de Settings */}
+            <Route path="/connect-devices-settings" element={<ConnectDevicesSettingsPage />} />
+            <Route path="/help-support-settings" element={<HelpSupportSettingsPage />} />
+            <Route path="/network-settings" element={<NetworkSettingsPage />} />
+            <Route path="/notifications-settings" element={<NotificationsSettingsPage />} />
+            <Route path="/privacy-settings" element={<PrivacySettingsPage />} />
+            <Route path="/security-settings" element={<SecuritySettingsPage />} />
+            <Route path="/seedphrase-settings" element={<SeedPhraseSettingsPage />} />
+            <Route path="/backup-settings" element={<BackupSettingsPage />} />
+          </Route>
+        </Routes>
 
-      <Toaster position="top-center" />
-    </Router>
+        <Toaster position="top-center" />
+      </Router>
+    </>
   );
 }
 

@@ -51,10 +51,10 @@ const WalletHeader = () => {
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, type: 'spring' }}
-        className="bg-gradient-to-r from-violet-100 dark:from-violet-900/20 to-blue-100 dark:to-blue-900/20 rounded-2xl p-5 mb-6 border border-violet-200 dark:border-violet-800/30"
+        className="bg-gradient-to-r from-[#7e3ff2] to-[#a855f7] rounded-2xl p-5 mb-6 border border-violet-200 dark:border-violet-800/30"
       >
-        <p className="text-gray-700 dark:text-gray-400 text-sm mb-2">Total Balance</p>
-        <h2 className="text-3xl font-bold text-black dark:text-white mb-1">
+        <p className="text-white text-sm mb-2">Total Balance</p>
+        <h2 className="text-3xl font-bold text-white mb-1">
           {formatUSD(totalValue)}
         </h2>
       </motion.div>

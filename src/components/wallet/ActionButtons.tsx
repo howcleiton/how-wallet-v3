@@ -33,7 +33,7 @@ const ActionButton = ({
         "border border-gray-200 dark:border-[#2d2d3d]/50",
       )}
     >
-      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center mb-2">
+      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#7e3ff2] to-[#a855f7] flex items-center justify-center mb-2">
         <Icon className="w-5 h-5 text-white" />
       </div>
       <span className="text-sm text-gray-700 dark:text-gray-300">{label}</span>
