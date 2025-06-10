@@ -4,7 +4,6 @@ import MobileLayout from '@/components/layout/MobileLayout';
 import SectionHeader from '@/components/ui/section-header';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { useThemeStore } from '@/store/themeStore';
 import {
   Shield,
   Key,
@@ -24,7 +23,6 @@ const SettingsPage = () => {
   const { currentWallet } = useWalletStore();
   const navigate = useNavigate();
   const { toast } = useToast();
-  // ❌ Removido const { theme } = useThemeStore();
 
   if (!currentWallet) return null;
 
