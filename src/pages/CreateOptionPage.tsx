@@ -28,7 +28,7 @@ const CreateOptionPage = () => {
           Iniciar a sessão ou importar uma carteira existente
         </p>
 
-        <div className="text-left text-sm text-muted-foreground space-y-4 mb-6">
+        <div className="text-left text-sm text-muted-foreground space-y-4 mb-6 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-4">
           <div>
             <strong className="text-white block">🔒 Segurança reforçada</strong>
             Sua carteira está guardada de forma segura e descentralizada com múltiplos fatores.
@@ -48,7 +48,7 @@ const CreateOptionPage = () => {
 
         <Button
           variant="ghost"
-          className={`w-full ${isDark ? 'text-white hover:bg-zinc-900' : 'text-black hover:bg-zinc-200'} border`}
+          className={`w-full ${isDark ? 'text-white hover:bg-zinc-900' : 'text-black hover:bg-zinc-200'} border border-[rgba(255,255,255,0.08)]`}
           onClick={() => navigate('/create-wallet')}
         >
           Criar uma carteira de frase semente

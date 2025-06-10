@@ -101,7 +101,7 @@ const SendPage = () => {
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 
+          className="bg-white dark:bg-zinc-900 border border-[rgba(255,255,255,0.08)] 
                      rounded-2xl p-4 mb-6 transition-colors"
         >
           <div className="mb-4">
@@ -147,7 +147,7 @@ const SendPage = () => {
               value={recipient}
               onChange={(e) => setRecipient(e.target.value)}
               placeholder="Enter wallet address"
-              className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white"
+              className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border border-[rgba(255,255,255,0.08)] rounded-2xl"
               disabled={isSubmitting}
             />
           </div>
@@ -159,7 +159,7 @@ const SendPage = () => {
                 <button
                   type="button"
                   onClick={() => setAmount(maxAmount.toString())}
-                  className="text-xs text-violet-500 hover:text-violet-400"
+                  className="text-xs text-violet-500 hover:text-violet-400 px-2 py-1 rounded-2xl border border-[rgba(255,255,255,0.08)]"
                   disabled={isSubmitting}
                 >
                   Max: {formatAmount(maxAmount)} {selectedToken}
@@ -172,7 +172,7 @@ const SendPage = () => {
               placeholder="0.00"
               type="text"
               inputMode="decimal"
-              className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white text-xl"
+              className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white text-xl border border-[rgba(255,255,255,0.08)] rounded-2xl"
               disabled={isSubmitting}
             />
             {token && (
@@ -184,7 +184,7 @@ const SendPage = () => {
         </motion.div>
         
         {validationError && (
-          <div className="mb-4 text-sm text-red-400 p-3 rounded-lg bg-red-100 dark:bg-red-900/20 border border-red-300 dark:border-red-900/30">
+          <div className="mb-4 text-sm text-red-400 p-3 rounded-2xl bg-red-100 dark:bg-red-900/20 border border-[rgba(255,255,255,0.08)]">
             {validationError}
           </div>
         )}

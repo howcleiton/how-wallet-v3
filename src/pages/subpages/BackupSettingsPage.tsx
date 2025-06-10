@@ -63,7 +63,7 @@ const BackupSettingsPage = () => {
           </p>
         </div>
 
-        <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-4 flex items-start space-x-3 text-left">
+        <div className="bg-yellow-500/10 border border-[rgba(255,255,255,0.08)] rounded-2xl p-4 flex items-start space-x-3 text-left">
           <ShieldAlert size={32} className="text-yellow-400 mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-semibold text-yellow-400 mb-1">Importante: Segurança do Backup</h3>
@@ -90,4 +90,3 @@ const BackupSettingsPage = () => {
 };
 
 export default BackupSettingsPage;
-

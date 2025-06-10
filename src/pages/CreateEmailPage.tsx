@@ -38,7 +38,7 @@ const CreateEmailPage = () => {
           placeholder="exemplo@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mb-4"
+          className="mb-4 border border-[rgba(255,255,255,0.08)] rounded-2xl"
         />
 
         <Button

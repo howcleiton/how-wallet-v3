@@ -45,7 +45,7 @@ const NetworkSettingsPage = () => {
         transition={{ delay: 0.1, duration: 0.4 }}
         className="p-4"
       >
-        <div className="mb-6 p-4 bg-card border border-border rounded-2xl flex items-center space-x-3">
+        <div className="mb-6 p-4 bg-card border border-[rgba(255,255,255,0.08)] rounded-2xl flex items-center space-x-3">
           <Globe2 size={24} className="text-[#B8A9C9]" />
           <div>
             <h3 className="font-semibold text-lg text-foreground">Selecionar Rede</h3>

@@ -79,7 +79,7 @@ const CreateWalletPage = () => {
                     placeholder="My Wallet"
                     className="bg-zinc-100 dark:bg-[#1a1a28] 
                                text-zinc-900 dark:text-white 
-                               border border-zinc-300 dark:border-[#2d2d3d] 
+                               border border-[rgba(255,255,255,0.08)] rounded-2xl
                                placeholder:text-zinc-500 dark:placeholder:text-zinc-400 
                                transition-colors"
                   />
@@ -94,7 +94,7 @@ const CreateWalletPage = () => {
                 </Button>
               </CardContainer>
 
-              <div className="text-sm text-zinc-600 dark:text-zinc-400">
+              <div className="text-sm text-zinc-600 dark:text-zinc-400 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-4">
                 <p className="mb-2">By creating a new wallet, you will:</p>
                 <ul className="list-disc pl-5 space-y-1">
                   <li>Generate a new Solana address</li>
@@ -114,9 +114,9 @@ const CreateWalletPage = () => {
                   Backup Your Recovery Phrase
                 </h2>
 
-                <div className="flex items-center gap-2 p-3 rounded-lg 
+                <div className="flex items-center gap-2 p-3 rounded-2xl 
                                 bg-yellow-100 dark:bg-yellow-900/20 
-                                border border-yellow-300 dark:border-yellow-900/30 mb-4">
+                                border border-[rgba(255,255,255,0.08)] mb-4">
                   <AlertTriangle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0" />
                   <p className="text-sm text-yellow-700 dark:text-yellow-300">
                     Write these words down and keep them in a safe place!
@@ -128,8 +128,8 @@ const CreateWalletPage = () => {
                     <div
                       key={index}
                       className="p-2 bg-zinc-100 dark:bg-[#1a1a28] 
-                                 border border-zinc-300 dark:border-[#2d2d3d] 
-                                 rounded-lg text-center"
+                                 border border-[rgba(255,255,255,0.08)] 
+                                 rounded-2xl text-center"
                     >
                       <span className="text-xs text-zinc-500 dark:text-gray-500 mr-1">{index + 1}.</span>
                       <span className="text-zinc-800 dark:text-white">{word}</span>
@@ -158,8 +158,8 @@ const CreateWalletPage = () => {
                   <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-1">
                     Your Wallet Address
                   </p>
-                  <div className="px-3 py-2 bg-zinc-100 dark:bg-[#1a1a28] rounded-lg 
-                                  text-zinc-900 dark:text-white overflow-x-auto font-mono text-sm">
+                  <div className="px-3 py-2 bg-zinc-100 dark:bg-[#1a1a28] rounded-2xl 
+                                  text-zinc-900 dark:text-white overflow-x-auto font-mono text-sm border border-[rgba(255,255,255,0.08)]">
                     {newWallet.address}
                   </div>
                 </div>

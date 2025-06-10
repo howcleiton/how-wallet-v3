@@ -31,7 +31,7 @@ const CardContainer = ({
       onClick={onClick}
       className={cn(
         // Adapta o visual ao tema
-        'bg-white dark:bg-[#14141f] border border-gray-200 dark:border-[#2d2d3d]/50 rounded-2xl p-4 shadow-lg',
+        'bg-white dark:bg-[#14141f] border border-[rgba(255,255,255,0.08)] rounded-2xl p-4 shadow-lg',
         onClick && 'cursor-pointer',
         className
       )}

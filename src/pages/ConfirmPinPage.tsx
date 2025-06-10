@@ -51,11 +51,11 @@ const ConfirmPinPage = () => {
           maxLength={4}
           value={confirmPin}
           onChange={(e) => setConfirmPin(e.target.value.replace(/\D/g, ''))}
-          className="mb-4 text-center tracking-widest text-lg"
+          className="mb-4 text-center tracking-widest text-lg border border-[rgba(255,255,255,0.08)] rounded-2xl"
           placeholder="••••"
         />
 
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {error && <p className="text-red-500 text-sm mb-4 bg-red-500/10 border border-[rgba(255,255,255,0.08)] rounded-2xl p-3">{error}</p>}
 
         <Button
           className="w-full bg-violet-600 hover:bg-violet-700 text-white"

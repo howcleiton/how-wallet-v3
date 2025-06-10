@@ -34,7 +34,7 @@ const SeedPhraseSettingsPage = () => {
         className="space-y-6 p-4"
       >
         {/* Alerta */}
-        <div className="bg-destructive/10 border border-destructive/20 rounded-2xl p-4 flex items-start space-x-3">
+        <div className="bg-destructive/10 border border-[rgba(255,255,255,0.08)] rounded-2xl p-4 flex items-start space-x-3">
           <AlertTriangle size={32} className="text-destructive mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-semibold text-destructive mb-1">Atenção Máxima!</h3>
@@ -45,14 +45,14 @@ const SeedPhraseSettingsPage = () => {
         </div>
 
         {/* Seed Phrase */}
-        <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
+        <div className="bg-card border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 space-y-4">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold text-foreground">Sua Frase de Recuperação</h3>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setShowSeed(!showSeed)}
-              className="text-[#B8A9C9] hover:text-foreground flex items-center space-x-2"
+              className="text-[#B8A9C9] hover:text-foreground flex items-center space-x-2 border border-[rgba(255,255,255,0.08)] rounded-2xl"
             >
               {showSeed ? <EyeOff size={18} /> : <Eye size={18} />}
               <span>{showSeed ? 'Ocultar' : 'Mostrar'}</span>
@@ -76,7 +76,7 @@ const SeedPhraseSettingsPage = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05, duration: 0.3 }}
-                    className="bg-muted border border-border rounded-xl p-3 flex items-center space-x-3"
+                    className="bg-muted border border-[rgba(255,255,255,0.08)] rounded-2xl p-3 flex items-center space-x-3"
                   >
                     <span className="text-sm text-muted-foreground w-6 text-center">
                       {index + 1}
@@ -89,7 +89,7 @@ const SeedPhraseSettingsPage = () => {
               : Array.from({ length: 12 }).map((_, index) => (
                   <div
                     key={`placeholder-${index}`}
-                    className="bg-muted border border-border rounded-xl p-3 flex items-center space-x-3 h-[50px]"
+                    className="bg-muted border border-[rgba(255,255,255,0.08)] rounded-2xl p-3 flex items-center space-x-3 h-[50px]"
                   >
                     <span className="text-sm text-muted-foreground w-6 text-center">
                       {index + 1}

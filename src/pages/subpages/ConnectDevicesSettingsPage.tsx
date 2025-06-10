@@ -31,9 +31,9 @@ const ConnectDevicesSettingsPage = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="qr-code-container mx-auto max-w-[240px] p-4 bg-card border border-border rounded-xl"
+          className="qr-code-container mx-auto max-w-[240px] p-4 bg-card border border-[rgba(255,255,255,0.08)] rounded-2xl"
         >
-          <div className="w-48 h-48 bg-muted rounded-lg flex items-center justify-center mx-auto">
+          <div className="w-48 h-48 bg-muted rounded-2xl flex items-center justify-center mx-auto border border-[rgba(255,255,255,0.08)]">
             <div className="grid grid-cols-10 gap-0.5">
               {Array.from({ length: 100 }, (_, i) => (
                 <div

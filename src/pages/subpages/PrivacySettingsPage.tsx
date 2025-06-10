@@ -24,7 +24,7 @@ const PrivacySettingsPage = () => {
       >
         <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] p-4 rounded-2xl flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center border border-[rgba(255,255,255,0.08)]">
               <Eye size={20} className="text-[#B8A9C9]" />
             </div>
             <div>
@@ -49,7 +49,7 @@ const PrivacySettingsPage = () => {
           className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] p-4 rounded-2xl flex items-center justify-between transition-colors text-left"
         >
           <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center border border-[rgba(255,255,255,0.08)]">
               <UserCheck size={20} className="text-[#B8A9C9]" />
             </div>
             <div>
