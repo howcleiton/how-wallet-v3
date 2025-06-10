@@ -14,9 +14,8 @@ const SeedPhraseSettingsPage = () => {
   const { currentWallet } = useWalletStore();
   const [showSeed, setShowSeed] = useState(false);
 
-  if (!currentWallet?.seedPhrase) return null;
-
   const handleCopySeed = () => {
+    if (!currentWallet?.seedPhrase) return;
     navigator.clipboard.writeText(currentWallet.seedPhrase.join(' '));
     toast({
       title: 'Seed Phrase Copiada!',
@@ -70,7 +69,7 @@ const SeedPhraseSettingsPage = () => {
               pointerEvents: !showSeed ? 'none' : 'auto',
             }}
           >
-            {showSeed
+            {showSeed && currentWallet?.seedPhrase
               ? currentWallet.seedPhrase.map((word, index) => (
                   <motion.div
                     key={index}

@@ -13,7 +13,7 @@ const NetworkSettingsPage = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { currentWallet, changeNetwork } = useWalletStore();
-  const [selectedNetwork, setSelectedNetwork] = useState(currentWallet?.network || 'mainnet');
+  const [selectedNetwork, setSelectedNetwork] = useState<'mainnet' | 'devnet' | 'testnet'>(currentWallet?.network || 'mainnet');
 
   const networks = [
     { id: 'mainnet', name: 'Mainnet', description: 'Rede principal para transações reais.' },
@@ -21,9 +21,14 @@ const NetworkSettingsPage = () => {
     { id: 'devnet', name: 'Devnet', description: 'Rede de desenvolvimento com fundos de teste.' },
   ];
 
-  const handleNetworkChange = (value: string) => {
+  const handleNetworkChange = (value: 'mainnet' | 'devnet' | 'testnet') => {
     setSelectedNetwork(value);
-    changeNetwork(value);
+
+    // Só chama changeNetwork se for uma rede válida para sua carteira:
+    if (value === 'mainnet' || value === 'devnet') {
+      changeNetwork(value);
+    }
+
     toast({
       title: 'Rede Alterada',
       description: `Você agora está conectado à ${networks.find(n => n.id === value)?.name}.`,

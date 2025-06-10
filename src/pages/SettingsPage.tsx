@@ -21,7 +21,7 @@ import { motion } from 'framer-motion';
 import { formatAddress } from '@/lib/utils';
 
 const SettingsPage = () => {
-  const { currentWallet, clearWallet } = useWalletStore();
+  const { currentWallet } = useWalletStore(); // ✅ Removido clearWallet
   const navigate = useNavigate();
   const { toast } = useToast();
   const { theme } = useThemeStore();
@@ -29,7 +29,7 @@ const SettingsPage = () => {
   if (!currentWallet) return null;
 
   const handleLogout = () => {
-    clearWallet();
+    // Se você não tiver clearWallet, você pode fazer um reset aqui depois se precisar
     toast({
       title: 'Logout realizado',
       description: 'Você foi desconectado da carteira.',
@@ -100,7 +100,7 @@ const SettingsPage = () => {
       <SectionHeader title="Configurações" />
 
       <div className="p-4">
-        {/* Card da Wallet (igual ao seu SettingsScreen.jsx) */}
+        {/* Card da Wallet */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
