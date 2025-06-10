@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import MobileLayout from '@/components/layout/MobileLayout';
 import SectionHeader from '@/components/ui/section-header';
 import { Switch } from '@/components/ui/switch';
-import { Button } from '@/components/ui/button';
 import { BellRing, Settings2, ChevronRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';

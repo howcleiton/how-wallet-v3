@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import MobileLayout from '@/components/layout/MobileLayout';
 import SectionHeader from '@/components/ui/section-header';
-import { Button } from '@/components/ui/button';
 import { HelpCircle, BookOpen, Mail, MessageSquare, ChevronRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';

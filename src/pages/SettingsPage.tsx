@@ -21,15 +21,14 @@ import { motion } from 'framer-motion';
 import { formatAddress } from '@/lib/utils';
 
 const SettingsPage = () => {
-  const { currentWallet } = useWalletStore(); // ✅ Removido clearWallet
+  const { currentWallet } = useWalletStore();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { theme } = useThemeStore();
+  // ❌ Removido const { theme } = useThemeStore();
 
   if (!currentWallet) return null;
 
   const handleLogout = () => {
-    // Se você não tiver clearWallet, você pode fazer um reset aqui depois se precisar
     toast({
       title: 'Logout realizado',
       description: 'Você foi desconectado da carteira.',
