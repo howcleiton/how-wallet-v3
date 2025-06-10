@@ -36,7 +36,7 @@ const ReceivePage = () => {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-4 mb-6 transition-colors"
+          className="bg-white dark:bg-zinc-900 border border-[rgba(255,255,255,0.08)] rounded-2xl p-4 mb-6 transition-colors"
         >
           <div className="mb-4">
             <label className="block text-sm text-zinc-700 dark:text-zinc-300 mb-2">Select Token</label>
@@ -65,7 +65,7 @@ const ReceivePage = () => {
           </div>
           
           <div className="flex flex-col items-center py-4">
-            <div className="p-4 bg-white dark:bg-white rounded-2xl mb-4">
+            <div className="p-4 bg-white dark:bg-white rounded-2xl mb-4 border border-[rgba(255,255,255,0.08)]">
               <QRCodeSVG
                 value={currentWallet.address}
                 size={200}
@@ -81,12 +81,12 @@ const ReceivePage = () => {
             </p>
 
             <div className="flex items-center gap-2 mb-6">
-              <div className="px-4 py-3 bg-zinc-100 dark:bg-zinc-800 rounded-lg text-zinc-800 dark:text-white overflow-x-auto max-w-full">
+              <div className="px-4 py-3 bg-zinc-100 dark:bg-zinc-800 rounded-2xl text-zinc-800 dark:text-white overflow-x-auto max-w-full border border-[rgba(255,255,255,0.08)]">
                 <p className="whitespace-nowrap font-mono">{currentWallet.address}</p>
               </div>
               <button
                 onClick={copyAddress}
-                className="p-3 rounded-lg bg-zinc-200 dark:bg-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-600 transition-colors"
+                className="p-3 rounded-2xl bg-zinc-200 dark:bg-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-600 transition-colors border border-[rgba(255,255,255,0.08)]"
               >
                 {copied ? (
                   <CheckIcon className="w-5 h-5 text-green-500" />
@@ -98,7 +98,7 @@ const ReceivePage = () => {
           </div>
         </motion.div>
 
-        <div className="bg-blue-100 dark:bg-blue-900/20 border border-blue-300 dark:border-blue-900/30 rounded-lg p-4 text-sm text-blue-800 dark:text-blue-300">
+        <div className="bg-blue-100 dark:bg-blue-900/20 border border-[rgba(255,255,255,0.08)] rounded-2xl p-4 text-sm text-blue-800 dark:text-blue-300">
           <p className="font-medium mb-1">Important</p>
           <p>
             Only send <span className="font-semibold">{selectedToken}</span> to this address. Sending any other asset may result in permanent loss.

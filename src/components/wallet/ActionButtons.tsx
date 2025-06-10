@@ -27,10 +27,10 @@ const ActionButton = ({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={cn(
-        "flex flex-col items-center justify-center p-4 rounded-xl transition-colors",
+        "flex flex-col items-center justify-center p-4 rounded-2xl transition-colors",
         "bg-gray-100 dark:bg-[#1a1a28]",
         "hover:bg-gray-200 dark:hover:bg-[#252536]",
-        "border border-gray-200 dark:border-[#2d2d3d]/50",
+        "border border-[rgba(255,255,255,0.08)]",
       )}
     >
       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center mb-2">

@@ -35,7 +35,7 @@ const CreatePinPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <div className="mb-4 text-xs text-yellow-500 font-medium">
+        <div className="mb-4 text-xs text-yellow-500 font-medium bg-yellow-500/10 border border-[rgba(255,255,255,0.08)] rounded-2xl p-3">
           Isto não pode ser recuperado.
         </div>
 
@@ -52,7 +52,7 @@ const CreatePinPage = () => {
           placeholder="PIN"
           value={pin}
           onChange={handleChange}
-          className="tracking-widest text-center text-2xl px-4 py-2 rounded-md w-full bg-zinc-100 dark:bg-zinc-900 text-black dark:text-white mb-6"
+          className="tracking-widest text-center text-2xl px-4 py-2 rounded-2xl w-full bg-zinc-100 dark:bg-zinc-900 text-black dark:text-white mb-6 border border-[rgba(255,255,255,0.08)]"
         />
 
         <Button

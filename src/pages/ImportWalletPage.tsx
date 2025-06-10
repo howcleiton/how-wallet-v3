@@ -94,23 +94,23 @@ const ImportWalletPage = () => {
                   value={walletName}
                   onChange={(e) => setWalletName(e.target.value)}
                   placeholder="My Imported Wallet"
-                  className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 text-black dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400"
+                  className="bg-zinc-100 dark:bg-zinc-900 border border-[rgba(255,255,255,0.08)] rounded-2xl text-black dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400"
                   disabled={isWalletLoading}
                 />
               </div>
 
               {/* Tabs */}
               <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-4">
-                <TabsList className="w-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700">
+                <TabsList className="w-full bg-zinc-100 dark:bg-zinc-900 border border-[rgba(255,255,255,0.08)] rounded-2xl">
                   <TabsTrigger
                     value="seed"
-                    className="flex-1 data-[state=active]:bg-violet-600 data-[state=active]:text-white"
+                    className="flex-1 data-[state=active]:bg-violet-600 data-[state=active]:text-white rounded-2xl"
                   >
                     Recovery Phrase
                   </TabsTrigger>
                   <TabsTrigger
                     value="key"
-                    className="flex-1 data-[state=active]:bg-violet-600 data-[state=active]:text-white"
+                    className="flex-1 data-[state=active]:bg-violet-600 data-[state=active]:text-white rounded-2xl"
                   >
                     Private Key
                   </TabsTrigger>
@@ -125,7 +125,7 @@ const ImportWalletPage = () => {
                     value={seedPhrase}
                     onChange={(e) => setSeedPhrase(e.target.value)}
                     placeholder="Enter words separated by spaces"
-                    className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 text-black dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 min-h-[120px]"
+                    className="bg-zinc-100 dark:bg-zinc-900 border border-[rgba(255,255,255,0.08)] rounded-2xl text-black dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 min-h-[120px]"
                     disabled={isWalletLoading}
                   />
                   <p className="text-xs text-muted-foreground mt-1">
@@ -142,7 +142,7 @@ const ImportWalletPage = () => {
                     value={privateKey}
                     onChange={(e) => setPrivateKey(e.target.value)}
                     placeholder="Enter your private key"
-                    className="bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 text-black dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 font-mono"
+                    className="bg-zinc-100 dark:bg-zinc-900 border border-[rgba(255,255,255,0.08)] rounded-2xl text-black dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 font-mono"
                     disabled={isWalletLoading}
                   />
                 </TabsContent>
@@ -150,7 +150,7 @@ const ImportWalletPage = () => {
 
               {/* Validation error */}
               {validationError && (
-                <div className="mb-4 text-sm text-red-400 p-3 rounded-lg bg-red-900/20 border border-red-900/30">
+                <div className="mb-4 text-sm text-red-400 p-3 rounded-2xl bg-red-900/20 border border-[rgba(255,255,255,0.08)]">
                   {validationError}
                 </div>
               )}
@@ -172,7 +172,7 @@ const ImportWalletPage = () => {
               </Button>
             </CardContainer>
 
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-muted-foreground bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-4">
               <p className="mb-2">When importing a wallet:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Make sure you're on the official How Wallet app</li>

@@ -28,7 +28,7 @@ const WalletHeader = () => {
     <div className="p-4 pb-0">
       <div className="flex justify-between items-center mb-2">
         <h1 className="text-xl font-semibold text-black dark:text-white">{currentWallet.name}</h1>
-        <div className="px-2 py-1 rounded-full bg-gray-200 dark:bg-[#2a2a3a] text-xs text-violet-600 dark:text-violet-300 font-medium">
+        <div className="px-2 py-1 rounded-2xl bg-gray-200 dark:bg-[#2a2a3a] text-xs text-violet-600 dark:text-violet-300 font-medium border border-[rgba(255,255,255,0.08)]">
           {currentWallet.network === 'mainnet' ? 'Mainnet' : 'Devnet'}
         </div>
       </div>
@@ -37,7 +37,7 @@ const WalletHeader = () => {
         <p className="text-gray-700 dark:text-gray-400 text-sm">{formatAddress(currentWallet.address, 6)}</p>
         <button
           onClick={copyAddress}
-          className="p-1 rounded-md hover:bg-gray-300 dark:hover:bg-[#1e1e2e] transition-colors"
+          className="p-1 rounded-2xl hover:bg-gray-300 dark:hover:bg-[#1e1e2e] transition-colors border border-[rgba(255,255,255,0.08)]"
         >
           {copied ? (
             <CheckIcon className="w-4 h-4 text-green-500" />
@@ -51,7 +51,7 @@ const WalletHeader = () => {
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, type: 'spring' }}
-        className="bg-gradient-to-r from-violet-100 dark:from-violet-900/20 to-blue-100 dark:to-blue-900/20 rounded-2xl p-5 mb-6 border border-violet-200 dark:border-violet-800/30"
+        className="bg-gradient-to-r from-violet-100 dark:from-violet-900/20 to-blue-100 dark:to-blue-900/20 rounded-2xl p-5 mb-6 border border-[rgba(255,255,255,0.08)]"
       >
         <p className="text-gray-700 dark:text-gray-400 text-sm mb-2">Total Balance</p>
         <h2 className="text-3xl font-bold text-black dark:text-white mb-1">

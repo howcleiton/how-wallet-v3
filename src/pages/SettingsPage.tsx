@@ -102,10 +102,10 @@ const SettingsPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="bg-gradient-to-r from-[#3A1C71] to-[#7F5283] rounded-2xl p-6 mb-6"
+          className="bg-gradient-to-r from-[#3A1C71] to-[#7F5283] rounded-2xl p-6 mb-6 border border-[rgba(255,255,255,0.08)]"
         >
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center border border-[rgba(255,255,255,0.08)]">
               <span className="text-2xl font-bold text-white">H</span>
             </div>
             <div>
@@ -136,7 +136,7 @@ const SettingsPage = () => {
               className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] p-4 rounded-2xl flex items-center justify-between transition-colors"
             >
               <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center border border-[rgba(255,255,255,0.08)]">
                   <item.icon size={20} className="text-[#B8A9C9]" />
                 </div>
                 <div className="text-left">
@@ -158,7 +158,7 @@ const SettingsPage = () => {
         {/* Botão Logout */}
         <Button
           onClick={handleLogout}
-          className="w-full h-14 bg-destructive hover:bg-destructive/90 text-white font-semibold text-base rounded-2xl flex items-center justify-center space-x-2 transition-colors"
+          className="w-full h-14 bg-destructive hover:bg-destructive/90 text-white font-semibold text-base rounded-2xl flex items-center justify-center space-x-2 transition-colors border border-[rgba(255,255,255,0.08)]"
         >
           <LogOut size={20} />
           <span>Sair da Carteira</span>
