@@ -18,7 +18,7 @@ const WelcomePage = () => {
     if (currentWallet) {
       navigate('/wallet');
     }
-  }, [currentWallet]);
+  }, [currentWallet, navigate]);
 
   return (
     <div
@@ -40,18 +40,18 @@ const WelcomePage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* ✅ Logo maior */}
+        {/* ✅ Logo nova da How Wallet */}
         <img
-          src="/icons/logo_howwallet.png"
+          src="/icons/logo-howwallet.png"
           alt="How Wallet Logo"
-          className="w-28 h-28 mx-auto mb-4"
+          className="w-32 h-32 mx-auto mb-4"
         />
 
         <h1 className="text-2xl font-bold mb-3">Boas-vindas à How Wallet</h1>
         <p className="text-sm text-zinc-500 mb-6">
           Para começar, crie uma nova carteira ou importe uma carteira existente.
         </p>
-        
+
         <div className="flex justify-center gap-1 mb-6">
           {[...Array(5)].map((_, i) => (
             <span
