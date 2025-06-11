@@ -44,7 +44,7 @@ const WelcomePage = () => {
         <img
           src="/icons/logo-howwallet.png"
           alt="How Wallet Logo"
-          className="w-38 h-38 mx-auto mb-4"
+          className="w-37 h-37 mx-auto mb-4"
         />
 
         <h1 className="text-2xl font-bold mb-3">Boas-vindas à How Wallet</h1>
