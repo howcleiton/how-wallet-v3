@@ -1,109 +1,68 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useThemeStore } from '@/store/themeStore';
-import { useWalletStore } from '@/store/walletStore';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { motion } from 'framer-motion';
+import Lottie from 'lottie-react';
+import animationData from '@/assets/lottie/welcome-animation.json'; // renomeie seu arquivo para welcome-animation.json
 
 const WelcomePage = () => {
   const navigate = useNavigate();
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const { theme } = useThemeStore();
-  const { currentWallet } = useWalletStore();
-
-  const isDark = theme === 'dark';
-
-  useEffect(() => {
-    if (currentWallet) {
-      navigate('/wallet');
-    }
-  }, [currentWallet, navigate]);
 
   return (
-    <div
-      className={`min-h-screen flex flex-col items-center justify-center px-6 relative transition-colors ${
-        isDark ? 'bg-black text-white' : 'bg-white text-black'
-      }`}
-    >
-      {/* Ícones decorativos de fundo */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-10 select-none">
-        <div className="absolute top-8 left-8 w-12 h-12 bg-purple-500 rounded-2xl blur-xl border border-[rgba(255,255,255,0.08)]" />
-        <div className="absolute top-16 right-12 w-10 h-10 bg-violet-400 rounded-2xl blur-lg border border-[rgba(255,255,255,0.08)]" />
-        <div className="absolute bottom-16 left-10 w-14 h-14 bg-orange-400 rounded-2xl blur-xl border border-[rgba(255,255,255,0.08)]" />
-        <div className="absolute bottom-8 right-8 w-12 h-12 bg-green-500 rounded-2xl blur-lg border border-[rgba(255,255,255,0.08)]" />
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#1F1F1F] text-white px-6 py-8">
+
+      {/* Animação Lottie */}
+      <div className="w-64 h-64 mb-6">
+        <Lottie animationData={animationData} loop={true} />
       </div>
 
-      <motion.div
-        className="z-10 w-full max-w-sm text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        {/* ✅ Logo nova da How Wallet */}
-        <img
-          src="/icons/logo-howwallet.png"
-          alt="How Wallet Logo"
-          className="w-36 h-36 mx-auto mb-4"
+      {/* Título */}
+      <h1 className="text-[30px] font-bold mb-2 font-[Inter]">Bem-vindo à How</h1>
+
+      {/* Subtítulo */}
+      <p className="text-center text-[18px] font-medium text-gray-400 mb-8 font-[Inter]">
+        Sua carteira de criptomoedas segura e fácil de usar.
+      </p>
+
+      {/* Checkbox */}
+      <label className="flex items-center space-x-2 text-[18px] font-bold text-white mb-6 font-[Inter] cursor-pointer">
+        <input
+          type="checkbox"
+          className="appearance-none w-5 h-5 rounded-full border-2 border-white checked:bg-[#d47eae] checked:border-[#d47eae] transition-all cursor-pointer"
+          checked={acceptedTerms}
+          onChange={() => setAcceptedTerms(!acceptedTerms)}
         />
 
-        <h1 className="text-2xl font-bold mb-3">Boas-vindas à How Wallet</h1>
-        <p className="text-sm text-zinc-500 mb-6">
-          Para começar, crie uma nova carteira ou importe uma carteira existente.
-        </p>
+        <span>
+          Aceito os{' '}
+          <a href="/termos" className="text-[#d47eae] underline">
+            termos de serviço
+          </a>
+        </span>
+      </label>
 
-        <div className="flex justify-center gap-1 mb-6">
-          {[...Array(5)].map((_, i) => (
-            <span
-              key={i}
-              className={`h-2 w-2 rounded-2xl border border-[rgba(255,255,255,0.08)] ${
-                i === 0 ? 'bg-violet-500' : isDark ? 'bg-zinc-700' : 'bg-zinc-300'
-              }`}
-            />
-          ))}
-        </div>
+      {/* Botão Começar */}
+      <button
+        onClick={() => navigate('/create-option')}
+        disabled={!acceptedTerms}
+        className={`w-full max-w-xs text-[18px] font-bold font-[Inter] py-3 rounded-xl mb-4 transition ${acceptedTerms
+          ? 'bg-gradient-to-r from-[#d47eae] to-[#168bc2] text-white hover:opacity-90'
+          : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+          }`}
+      >
+        Começar
+      </button>
 
-        <div className="flex items-center justify-center gap-2 mb-6 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-3">
-          <Checkbox
-            id="terms"
-            checked={acceptedTerms}
-            onCheckedChange={(c) => setAcceptedTerms(!!c)}
-            className={`border ${
-              isDark ? 'border-zinc-700 bg-zinc-900' : 'border-zinc-300 bg-white'
-            }`}
-          />
-          <label
-            htmlFor="terms"
-            className="text-sm select-none cursor-pointer"
-          >
-            Aceito os <span className="underline">termos de serviço</span>
-          </label>
-        </div>
-
-        <Button
-          disabled={!acceptedTerms}
-          className="w-full mb-3 bg-violet-600 hover:bg-violet-700 text-white"
-          onClick={() => navigate('/create-option')}
-        >
-          Criar uma nova carteira
-        </Button>
-
-        <Button
-          variant="ghost"
-          onClick={() => {
-            if (acceptedTerms) {
-              navigate('/import-wallet');
-            }
-          }}
-          className={`w-full ${
-            isDark
-              ? 'bg-white text-black hover:bg-zinc-200'
-              : 'bg-zinc-100 text-black hover:bg-zinc-300'
-          } border border-[rgba(255,255,255,0.08)] transition-colors`}
-        >
-          Já tenho uma carteira
-        </Button>
-      </motion.div>
+      {/* Botão Importar */}
+      <button
+        onClick={() => navigate('/import-wallet')}
+        disabled={!acceptedTerms}
+        className={`w-full max-w-xs text-[18px] font-bold font-[Inter] py-3 rounded-xl border transition ${acceptedTerms
+          ? 'border-white text-white hover:text-gray-300 hover:border-gray-300'
+          : 'border-gray-500 bg-gray-700 text-gray-400 cursor-not-allowed'
+          }`}
+      >
+        Importar Carteira Existente
+      </button>
     </div>
   );
 };
