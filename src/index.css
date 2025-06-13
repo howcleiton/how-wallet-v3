@@ -14,23 +14,41 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   transition: background-color 0.3s, color 0.3s;
-}
 
-body {
+  /* ✅ fundo cinza escuro para visualizar as bordas */
+  background-color: #121212;
+
+  /* ✅ centraliza o app no meio da tela */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #root {
-  flex: 1;
+  flex: none;
+  width: 100%;
+  max-width: 430px;
+  /* largura de app mobile */
+  height: 100%;
   display: flex;
   flex-direction: column;
+
+  /* ✅ fundo do app segue seu tema normalmente */
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+
+  /* ✅ bordas arredondadas para parecer um celular (opcional, se não quiser, pode tirar) */
+  border-radius: 20px;
+
+  /* ✅ sombra para destacar o app no navegador */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 /* ✅ Scroll invisível mas funcional */
@@ -111,6 +129,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

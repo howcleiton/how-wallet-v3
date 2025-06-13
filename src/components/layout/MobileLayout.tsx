@@ -47,14 +47,19 @@ const MobileLayout = ({ children, className }: MobileLayoutProps) => {
   }, [location.pathname, showBottomNav]);
 
   return (
-    <div className="flex justify-center bg-background text-foreground transition-colors duration-300 min-h-screen">
+    <div
+      className="flex justify-center bg-[#1F1F1F] text-white transition-colors duration-300 min-h-screen"
+    >
       <div className="w-full max-w-md min-h-screen flex flex-col">
         <motion.main
           variants={pageVariants}
           initial="initial"
           animate="animate"
           exit="exit"
-          className={cn('pb-20 px-4 flex-1', className)}
+          className={cn(
+            'pb-20 px-4 flex-1 flex flex-col items-center',
+            className
+          )}
         >
           {children}
         </motion.main>
