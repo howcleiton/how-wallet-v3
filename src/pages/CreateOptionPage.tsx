@@ -46,7 +46,7 @@ const CreateOptionPage = () => {
         </div>
 
         {/* Botões */}
-        <div className="flex flex-col gap-4 w-full max-w-[350px]">
+        <div className="flex flex-col w-full max-w-[350px] mt-auto pb-[104px] gap-[13px]">
           <button
             onClick={() => navigate('/create-email')}
             className="text-white py-3 rounded-lg text-[18px] font-bold font-[Inter]"
@@ -64,6 +64,7 @@ const CreateOptionPage = () => {
             Crie uma carteira
           </button>
         </div>
+
       </BasePageLayout>
     </MobileLayout>
   );
